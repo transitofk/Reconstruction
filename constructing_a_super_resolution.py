@@ -2,9 +2,9 @@ import cv2
 import numpy as np
 from skimage.util import random_noise
 
-def triangle_kernel(kerlen_size):
-    r = np.arange(kerlen_size)
-    kernel1d = (kerlen_size + 1 - np.abs(r - r[::-1])) / 2
+def triangle_kernel(kerlensize):
+    r = np.arange(kerlensize)
+    kernel1d = (kerlensize + 1 - np.abs(r - r[::-1])) / 2
     kernel2d = np.outer(kernel1d, kernel1d)
     kernel2d /= kernel2d.sum()
     return kernel2d
