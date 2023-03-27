@@ -30,7 +30,7 @@ if __name__ == '__main__':
     num_filter = 3
     num_rec = 2
     num_cycle = 25
-    alpha = 0.6
+    alpha = 0.5
 
     for i in range(num_frame):
         shift_x_y.append(np.random.randint(1, 15))
