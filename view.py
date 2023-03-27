@@ -11,8 +11,9 @@ def main_page():
     rot = []
     list_min = []
 
-    st.title("Реконструкция  ЧБ-изображений")
-    uploaded_file = st.file_uploader("Загрузить фото", type=['jpg'])
+    st.set_page_config(page_title="Reconstruction")
+    st.title("Реконструкция  выского разрешения ЧБ-изображений")
+    uploaded_file = st.file_uploader("Загрузить фото:", type=['jpg'])
 
     if uploaded_file is not None:
         file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
@@ -44,7 +45,7 @@ def main_page():
 
         if num_rec == 1:
             num_cycle = st.number_input("Количесво циклов", min_value=1, value=1)
-            alpha = st.number_input("Параметр alpha", min_value=0.001, value=0.1, step=0.05)
+            alpha = st.number_input("Параметр alpha", min_value=0.001, max_value=1., value=0.1, step=0.05)
 
         but_start = st.button('Сгенерировать')
 
