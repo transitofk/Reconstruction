@@ -12,13 +12,6 @@ from view import main_page
 def run():
     main_page()
 
-def triangle_kernel(kerlen_size):
-    r = np.arange(kerlen_size)
-    kernel1d = (kerlen_size + 1 - np.abs(r - r[::-1])) / 2
-    kernel2d = np.outer(kernel1d, kernel1d)
-    kernel2d /= kernel2d.sum()
-    return kernel2d
-
 
 if __name__ == '__main__':
     run()
