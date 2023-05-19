@@ -9,3 +9,10 @@ def metrics(metric, img, img_HR):
         "SSIM": cv2.quality.QualitySSIM_compute(img, img_HR)[0][0]
     }
     return metric_list.get(metric, "Invalid metric")
+
+def metrics_new(img, img_HR):
+  psnr = cv2.quality.QualityPSNR_create(img)
+  ssim = cv2.quality.QualitySSIM_create(img)
+  psnr_score = psnr.compute(img_HR)[0]
+  ssim_score = ssim.compute(img_HR)[0]
+  return psnr_score, ssim_score
