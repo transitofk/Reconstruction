@@ -133,3 +133,12 @@ def main_page():
                     imgMerged = cv2.merge([frame_b, frame_g, frame_r])
                     cv2.imwrite('temporary.jpg', imgMerged)
                     st.image('temporary.jpg')
+    
+    hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+    st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
