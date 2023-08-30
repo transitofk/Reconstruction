@@ -1,6 +1,5 @@
 import cv2
 import numpy as np
-from skimage.util import random_noise
 
 
 def triangle_kernel(kerlen_size):
@@ -18,29 +17,6 @@ def choose_filter(img, count_blur, step):
         3: cv2.filter2D(img, -1, triangle_kernel(step))
     }
     return filter_list.get(count_blur, "Invalid count blur")
-
-
-# def add_noise(img, id_noise):
-#     if id_noise == 1:
-#         # Generate Gaussian noise = 1
-#         gauss = np.random.normal(0, 0.5, img.size)
-#         # gauss = gauss.reshape(img.shape[0], img.shape[1], img.shape[2]).astype('uint8')
-#         gauss = gauss.reshape(img.shape[0], img.shape[1]).astype('uint8')
-#         img_gauss = cv2.add(img, gauss)
-#         return img_gauss
-#     elif id_noise == 2:
-#         # Speckle noise = 2
-#         gauss = np.random.normal(0, 0.5, img.size)
-#         gauss = gauss.reshape(img.shape[0], img.shape[1]).astype('uint8')
-#         noise = img + img * gauss
-#         return noise
-#     else:
-#         # Add salt-and-pepper noise to the image = 3
-#         noise_img = random_noise(img, mode='s&p', amount=0.1)
-#         # The above function returns a floating-point image
-#         # on the range [0, 1], thus we changed it to 'uint8' and from [0,255]
-#         noise_img = np.array(255 * noise_img, dtype='uint8')
-#         return noise_img
 
 def add_noise(img):
     noise = (np.random.rand(img.shape[0], img.shape[1]) * 20 - 10)
